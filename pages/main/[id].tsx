@@ -1,6 +1,6 @@
 import React from "react";
 import {useRouter} from "next/navigation";
-import MainWrap from "@/components/main/MainWrap";
+import MainWrap from "@/src/main/MainWrap";
 
 
 function Main() {
