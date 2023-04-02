@@ -1,5 +1,5 @@
-import Head from 'next/head'
-import Main from '@/pages/main'
+import Head from 'next/head';
+import Main from '@pages/main';
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
         <meta name="description" content="qna blog for developers" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <Main/>
+      <Main />
     </>
-  )
+  );
 }

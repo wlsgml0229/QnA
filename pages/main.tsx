@@ -1,7 +1,5 @@
-import MainWrap from "@/src/main/MainWrap";
+import MainWrap from '@src/main/MainWrap';
 
 export default function Main() {
-    return (
-      <MainWrap/>
-    );
+  return <MainWrap />;
 }
