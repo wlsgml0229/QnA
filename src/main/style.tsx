@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const ProfileWrapper = styled.div`
   display: flex;
+  height: 100%;
   img {
     border-radius: 50%;
   }
@@ -11,6 +12,10 @@ export const ProfileIntroduce = styled.div`
   margin: 2rem;
   font-size: 1.2rem;
   color: darkgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   h2 {
     color: black;
@@ -18,12 +23,14 @@ export const ProfileIntroduce = styled.div`
 `;
 
 export const CalendarGraphwrap = styled.div`
-  width: 40rem;
-  height: 30rem;
+  width: 15rem;
+  height: 8rem;
 `;
 
 export const MainTopWrap = styled.div`
   display: flex;
 `;
 
-export const MainContainer = styled.div``;
+export const MainContainer = styled.div`
+  margin: 1.5rem;
+`;
