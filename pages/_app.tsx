@@ -1,9 +1,17 @@
 import '@styles/globals.css';
 import type { AppProps } from 'next/app';
+import { GlobalStyles } from '@styles/GlobalStyles';
+import MainHeader from '@components/MainHeader';
 
 export default function App({ Component, pageProps }: AppProps) {
   // 헤더
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <MainHeader />
+      <GlobalStyles />
+      <Component {...pageProps} />
+    </>
+  );
 }
 /**
  * 페이지 전환시 레이아웃유지
