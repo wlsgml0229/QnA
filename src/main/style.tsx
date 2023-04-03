@@ -17,7 +17,10 @@ export const ProfileIntroduce = styled.div`
   }
 `;
 
-export const CalendarGraphwrap = styled.div``;
+export const CalendarGraphwrap = styled.div`
+  width: 40rem;
+  height: 30rem;
+`;
 
 export const MainTopWrap = styled.div`
   display: flex;
