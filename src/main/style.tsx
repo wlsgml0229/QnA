@@ -32,5 +32,11 @@ export const MainTopWrap = styled.div`
 `;
 
 export const MainContainer = styled.div`
-  margin: 1.5rem;
+  box-sizing: border-box;
+  padding: 1.5rem;
+  min-height: calc(100vh - 6.4rem);
+`;
+
+export const RecentPostsContainer = styled.div`
+  display: flex;
 `;
