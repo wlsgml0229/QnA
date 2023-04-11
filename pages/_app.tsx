@@ -2,6 +2,8 @@ import '@styles/globals.css';
 import type { AppProps } from 'next/app';
 import { GlobalStyles } from '@styles/GlobalStyles';
 import MainHeader from '@components/MainHeader';
+import customAxios from '@src/utils/axios';
+customAxios.init();
 
 export default function App({ Component, pageProps }: AppProps) {
   // 헤더
