@@ -1,16 +1,16 @@
 import '@styles/globals.css';
 import type { AppProps } from 'next/app';
 import { GlobalStyles } from '@styles/GlobalStyles';
-import MainHeader from '@components/MainHeader';
 import customAxios from '@src/utils/axios';
+import { NavBar } from '@components/NavBar';
 customAxios.init();
 
 export default function App({ Component, pageProps }: AppProps) {
   // 헤더
   return (
     <>
-      <MainHeader />
       <GlobalStyles />
+      <NavBar />
       <Component {...pageProps} />
     </>
   );
