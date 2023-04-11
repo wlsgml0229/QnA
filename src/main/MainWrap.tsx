@@ -10,10 +10,8 @@ import RecentPosts from '../../components/RecentPosts';
 export default function MainWrap() {
   return (
     <MainContainer>
-      <MainTopWrap>
-        <Profile />
-        <CalendarGraph />
-      </MainTopWrap>
+      <Profile />
+      <CalendarGraph />
       <RecentPostsContainer>
         <RecentPosts />
         <RecentPosts />

@@ -5,8 +5,8 @@ export default function CalendarGraph() {
   return (
     <CalendarGraphwrap>
       <CalendarHeatmap
-        startDate={new Date('2016-01-01')}
-        endDate={new Date('2016-04-01')}
+        startDate={new Date('2023-01-01')}
+        endDate={new Date('2024-01-01')}
         values={[
           { date: '2016-01-01', count: 12 },
           { date: '2016-01-22', count: 122 },
