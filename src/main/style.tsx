@@ -3,11 +3,11 @@ import styled from 'styled-components';
 export const ProfileWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  //justify-content: space-around;
   border-radius: 30px;
   border: 1px solid #c9d2db47;
   padding: 1.6rem;
-  height: calc(100vh - 10rem);
+  height: 60rem;
   img {
     border-radius: 50%;
   }
@@ -41,13 +41,16 @@ export const ProfileIntroduce = styled.div`
 `;
 
 export const CalendarGraphwrap = styled.div`
-  width: 38rem;
-  height: 9rem;
+  width: calc(100% - 8rem);
+  height: calc(50vh - 8rem);
   margin-left: 2rem;
 `;
 
-export const MainTopWrap = styled.div`
+export const MainRightWrap = styled.div`
   display: flex;
+  flex-direction: column;
+  margin-left: 4rem;
+  width: 100%;
 `;
 
 export const MainContainer = styled.div`
@@ -60,4 +63,5 @@ export const MainContainer = styled.div`
 
 export const RecentPostsContainer = styled.div`
   display: flex;
+  margin-top: 4rem;
 `;

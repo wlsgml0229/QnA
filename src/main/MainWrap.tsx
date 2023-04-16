@@ -1,7 +1,7 @@
 import {
-  MainTopWrap,
   MainContainer,
   RecentPostsContainer,
+  MainRightWrap,
 } from '@src/main/style';
 import Profile from '@src/main/components/Profile';
 import CalendarGraph from './components/CalendarGraph';
@@ -11,11 +11,13 @@ export default function MainWrap() {
   return (
     <MainContainer>
       <Profile />
-      <CalendarGraph />
-      <RecentPostsContainer>
-        <RecentPosts />
-        <RecentPosts />
-      </RecentPostsContainer>
+      <MainRightWrap>
+        <CalendarGraph />
+        <RecentPostsContainer>
+          <RecentPosts title={'latest blog post'} />
+          <RecentPosts title={'Recent questions'} />
+        </RecentPostsContainer>
+      </MainRightWrap>
     </MainContainer>
   );
 }

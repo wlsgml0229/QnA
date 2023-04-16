@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-export default function RecentPosts() {
+export default function RecentPosts({ title }) {
   return (
     <RecentPostsWrap>
-      <PostTitle>title</PostTitle>
+      <PostTitle>{title}</PostTitle>
       <PostList>
         <li>내가쓴글</li>
         <li>내가쓴글2</li>
@@ -18,14 +18,30 @@ export const RecentPostsWrap = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   width: 40rem;
-  strong {
-    margin-top: 2rem;
-    font-size: 1.6rem;
-  }
 `;
 
 export const PostTitle = styled.strong`
-  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  border: 1px solid #393e46;
+  height: 4rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  width: 26rem;
+  margin-bottom: 2rem;
 `;
 
-export const PostList = styled.ol``;
+export const PostList = styled.ol`
+  margin-left: 2rem;
+  li {
+    cursor: pointer;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: #676464;
+    &:before {
+      content: '#';
+      margin-right: 1rem;
+    }
+  }
+`;
