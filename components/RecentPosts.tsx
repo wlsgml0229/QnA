@@ -1,6 +1,10 @@
 import styled from 'styled-components';
-
-export default function RecentPosts({ title }) {
+import { string } from 'prop-types';
+import React from 'react';
+type PropsType = {
+  title: string;
+};
+export const RecentPosts = ({ title }: PropsType) => {
   return (
     <RecentPostsWrap>
       <PostTitle>{title}</PostTitle>
@@ -11,7 +15,7 @@ export default function RecentPosts({ title }) {
       </PostList>
     </RecentPostsWrap>
   );
-}
+};
 
 export const RecentPostsWrap = styled.div`
   display: flex;

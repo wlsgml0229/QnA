@@ -3,11 +3,11 @@ import {
   RecentPostsContainer,
   MainRightWrap,
 } from '@src/main/style';
-import Profile from '@src/main/components/Profile';
-import CalendarGraph from './components/CalendarGraph';
-import RecentPosts from '../../components/RecentPosts';
+import { Profile } from '@src/main/components/Profile';
+import { CalendarGraph } from './components/CalendarGraph';
+import { RecentPosts } from '@components/RecentPosts';
 
-export default function MainWrap() {
+export const MainWrap = () => {
   return (
     <MainContainer>
       <Profile />
@@ -20,4 +20,4 @@ export default function MainWrap() {
       </MainRightWrap>
     </MainContainer>
   );
-}
+};
