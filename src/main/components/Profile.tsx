@@ -3,12 +3,13 @@ import {
   ProfileWrapper,
   ProfileIntroduce,
   ProfileTextWrap,
+  CommonButton,
 } from '@src/main/style';
 import myImg from '@assets/images/myImg.jpeg';
 import { useState } from 'react';
 import { TextField } from '@mui/material';
 
-export default function Profile() {
+export const Profile = () => {
   const [edit, setEdit] = useState(false);
   const [editText, setEditText] = useState('');
   const onClickEdit = () => {
@@ -45,8 +46,8 @@ export default function Profile() {
             <p>intro 어쩌구 자기소개~~~</p>
           </ProfileIntroduce>
         )}
-        <button onClick={onClickEdit}>Edit</button>
+        <CommonButton onClick={onClickEdit}>Edit</CommonButton>
       </ProfileTextWrap>
     </ProfileWrapper>
   );
-}
+};

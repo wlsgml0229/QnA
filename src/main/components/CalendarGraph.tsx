@@ -1,7 +1,7 @@
 import CalendarHeatmap from 'react-calendar-heatmap';
 import 'react-calendar-heatmap/dist/styles.css';
 import { CalendarGraphwrap } from '@src/main/style';
-export default function CalendarGraph() {
+export const CalendarGraph = () => {
   return (
     <CalendarGraphwrap>
       <CalendarHeatmap
@@ -16,4 +16,4 @@ export default function CalendarGraph() {
       />
     </CalendarGraphwrap>
   );
-}
+};

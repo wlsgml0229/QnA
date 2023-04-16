@@ -43,7 +43,8 @@ export const ProfileIntroduce = styled.div`
 export const CalendarGraphwrap = styled.div`
   width: calc(100% - 8rem);
   height: calc(50vh - 8rem);
-  margin-left: 2rem;
+  display: flex;
+  align-items: center;
 `;
 
 export const MainRightWrap = styled.div`
@@ -64,4 +65,11 @@ export const MainContainer = styled.div`
 export const RecentPostsContainer = styled.div`
   display: flex;
   margin-top: 4rem;
+`;
+
+export const CommonButton = styled.button`
+  padding: 1rem;
+  border: 1px solid#555555;
+  width: 100%;
+  margin-top: 2rem;
 `;
