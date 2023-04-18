@@ -4,7 +4,8 @@ import { BlogWrap } from '@src/blog/BlogWrap';
 
 export default function Blog() {
   const searchParams = useSearchParams();
-  const menu = searchParams.get('menu');
+  let menu = searchParams.get('menu');
+  console.log('menu', menu)
 
-  return <BlogWrap />;
+  return <BlogWrap menu={menu} />;
 }

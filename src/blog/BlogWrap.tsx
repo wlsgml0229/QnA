@@ -4,6 +4,7 @@ import {
   BlogList,
   BlogTitle,
   BlogUserWrap,
+  BlogViews,
 } from '@src/blog/style';
 import Image from 'next/image';
 import myImg from '@assets/images/myImg.jpeg';
@@ -28,9 +29,15 @@ const data = [
     user: { name: '네임' },
   },
 ];
-export const BlogWrap = () => {
+
+interface Props {
+  menu: string | null;
+}
+
+export const BlogWrap = ({ menu }: Props) => {
   return (
     <BlogList>
+      <h2>{menu}</h2>
       {data.map((item) => (
         <BlogItem key={item.id}>
           <BlogUserWrap>
@@ -45,9 +52,9 @@ export const BlogWrap = () => {
           </BlogUserWrap>
           <BlogTitle>{item.title}</BlogTitle>
           <BlogContent>{item.content}</BlogContent>
-          <div>
-            <span>조회수 </span>조회수 43
-          </div>
+          <BlogViews>
+            <span>조회수 43</span>
+          </BlogViews>
         </BlogItem>
       ))}
     </BlogList>

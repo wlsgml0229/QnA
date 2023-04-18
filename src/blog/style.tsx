@@ -3,7 +3,13 @@ import styled from 'styled-components';
 export const BlogList = styled.div`
   padding: 1rem;
   margin-left: 8rem;
-  margin-top: 6rem;
+  margin-top: 5rem;
+  h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 4rem;
+    font-family: '양진체',serif;
+  }
 `;
 export const BlogItem = styled.div`
   width: 100%;
@@ -27,12 +33,16 @@ export const BlogUserWrap = styled.div`
   margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
-  image {
-    border-radius: 10px;
+  img {
+    border-radius: 50%;
   }
   span {
     margin-left: 1rem;
     font-size: 1.3rem;
     font-weight: 600;
   }
+`;
+
+export const BlogViews = styled.div`
+  margin-bottom: 1.8rem;
 `;

@@ -3,10 +3,10 @@
 import * as React from 'react';
 import { IPost } from '../types';
 
-interface Props  {
+interface Props {
   post: IPost;
   deletePost: (id: number) => void;
-};
+}
 
 const Post = ({ post, deletePost }: Props) => {
   return (
