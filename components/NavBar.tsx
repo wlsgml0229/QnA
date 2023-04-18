@@ -30,7 +30,7 @@ export const NavBar = () => {
     >
       {data.map((menu) => (
         <NavItem key={menu.id} onClick={onClickMenu}>
-          <Link href={`/main/${menu.text}`}>{menu.text}</Link>
+          <Link href={`/blog/${menu.text}`}>{menu.text}</Link>
         </NavItem>
       ))}
     </NavbarWrap>
