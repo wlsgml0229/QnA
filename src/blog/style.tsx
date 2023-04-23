@@ -1,15 +1,20 @@
 import styled from 'styled-components';
+import { media } from '@styles/media';
 
 export const BlogList = styled.div`
-  padding: 1rem;
-  margin-left: 8rem;
-  margin-top: 5rem;
+  width: 100%;
+  max-width: 120rem; /* 뷰포트의 너비가 1200px 이하일 때는 100%의 너비를 가지게 됨 */
+  margin: 5rem auto 0 auto;
+  padding-left: 8rem;
   h2 {
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 4rem;
-    font-family: '양진체',serif;
+    font-family: '양진체', serif;
   }
+  ${media.medium`
+    max-width: 100%;
+  `}
 `;
 export const BlogItem = styled.div`
   width: 100%;

@@ -1,10 +1,10 @@
 import axios from 'axios';
-import { token } from './token';
+import { token } from '@src/utils/token';
 
 /**
  * 기본 URL 설정
  */
-// axios.defaults.baseURL = process.env.VUE_APP_CODEF_DOMAIN;
+axios.defaults.baseURL = '43.201.115.136:8080';
 
 /**
  * axios 응답 인터셉터 설정
@@ -49,8 +49,8 @@ export const customAxios = {
   getBlobFile(resource: any, params: any) {
     return axios.get(`${resource}`, { responseType: 'blob', params });
   },
-  post(resource: any, args: any) {
-    return axios.post(`${resource}`, args);
+  post(resource: any) {
+    return axios.post(`${resource}`);
   },
   update(resource: any, params: any) {
     return axios.put(`${resource}`, params);
