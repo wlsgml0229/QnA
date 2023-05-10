@@ -5,8 +5,6 @@ import { REST_API_KEY, REDIRECT_URI } from '../../secretConfig';
 import useSWR from 'swr';
 import Image from 'next/image';
 export const LoginWrap = () => {
-  // const { data, error } = useSWR('', fetcher, {});
-  let fetcher = () => {};
   const onSubmit = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>): void => {
       e.preventDefault();

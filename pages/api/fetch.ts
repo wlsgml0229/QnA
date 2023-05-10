@@ -1,10 +1,4 @@
-import axios from 'axios';
+import customAxios from '@pages/api/axios';
 
-const fetcher = (url: string) =>
-  axios
-    .get(url, {
-      withCredentials: true,
-    })
-    .then((response) => response.data);
-
-export default fetcher;
+export const fetcher = (url: string) =>
+  customAxios.get(url, {}).then((response) => response.data);

@@ -2,11 +2,6 @@ import axios from 'axios';
 import { token } from '@src/utils/token';
 
 /**
- * 기본 URL 설정
- */
-axios.defaults.baseURL = '43.201.115.136:8080';
-
-/**
  * axios 응답 인터셉터 설정
  */
 export const customAxios = {

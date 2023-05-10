@@ -3,8 +3,10 @@ import { GlobalStyles } from '@styles/GlobalStyles';
 import customAxios from '@pages/api/axios';
 import { NavBar } from '@components/NavBar';
 import { useRouter } from 'next/router';
-customAxios.init();
+import axios from 'axios';
 
+axios.defaults.baseURL = 'http://43.201.115.136:8080/';
+customAxios.init();
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   if (router.pathname === '/login') {
