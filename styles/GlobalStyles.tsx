@@ -19,23 +19,21 @@ export const GlobalStyles = createGlobalStyle`
   }
   
   * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    font-family: 'S-CoreDream-3Light',serif;
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      font-family: 'S-CoreDream-3Light',serif;
     }
   
   html {
-    font-family: 'S-CoreDream-3Light',serif;
+      box-sizing: border-box;
+      font-family: 'S-CoreDream-3Light',serif;
       font-size: 62.5%;
     }
   
     a{
         text-decoration: none;
         color: inherit;
-    }
-    *{
-        box-sizing: border-box;
     }
     input, textarea { 
       -moz-user-select: auto;

@@ -10,7 +10,11 @@ customAxios.init();
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   if (router.pathname === '/login') {
-    return <Component {...pageProps} />;
+    return (<>
+       <GlobalStyles />
+       <Component {...pageProps} />
+    </>
+   );
   }
 
   // 헤더
