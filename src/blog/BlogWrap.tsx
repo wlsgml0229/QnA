@@ -8,6 +8,10 @@ import {
 } from '@src/blog/style';
 import Image from 'next/image';
 import myImg from '@assets/images/myImg.jpeg';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { IPost } from '../../types';
+import { router } from 'next/client';
+import Link from 'next/link';
 
 const data = [
   {
@@ -40,21 +44,23 @@ export const BlogWrap = ({ menu }: Props) => {
       <h2>{menu}</h2>
       {data.map((item) => (
         <BlogItem key={item.id}>
-          <BlogUserWrap>
-            <Image
-              src={myImg}
-              alt="user profile image"
-              width={30}
-              height={30}
-              priority={false}
-            />
-            <span>{item.user.name}</span>
-          </BlogUserWrap>
-          <BlogTitle>{item.title}</BlogTitle>
-          <BlogContent>{item.content}</BlogContent>
-          <BlogViews>
-            <span>조회수 43</span>
-          </BlogViews>
+          <Link href={`/blog/${menu}/${item.id}`}>
+            <BlogUserWrap>
+              <Image
+                src={myImg}
+                alt="user profile image"
+                width={30}
+                height={30}
+                priority={false}
+              />
+              <span>{item.user.name}</span>
+            </BlogUserWrap>
+            <BlogTitle>{item.title}</BlogTitle>
+            <BlogContent>{item.content}</BlogContent>
+            <BlogViews>
+              <span>조회수 43</span>
+            </BlogViews>
+          </Link>
         </BlogItem>
       ))}
     </BlogList>
