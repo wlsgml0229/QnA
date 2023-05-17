@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Main from '@pages/main';
 import axios from 'axios';
-axios.defaults.baseURL = 'http://43.201.95.19:8080';
+
 export default function Home() {
   return (
     <>
