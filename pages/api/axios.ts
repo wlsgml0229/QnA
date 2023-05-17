@@ -44,8 +44,8 @@ export const customAxios = {
   getBlobFile(resource: any, params: any) {
     return axios.get(`${resource}`, { responseType: 'blob', params });
   },
-  post(resource: any) {
-    return axios.post(`${resource}`);
+  post(resource: any,  params: any) {
+    return axios.post(`${resource}`, {params});
   },
   update(resource: any, params: any) {
     return axios.put(`${resource}`, params);
