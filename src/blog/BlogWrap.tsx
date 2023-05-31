@@ -8,9 +8,6 @@ import {
 } from '@src/blog/style';
 import Image from 'next/image';
 import myImg from '@assets/images/myImg.jpeg';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { IPost } from '../../types';
-import { router } from 'next/client';
 import Link from 'next/link';
 
 const data = [

@@ -1,26 +1,24 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import Link from 'next/link';
+import useSWR from 'swr';
+import { ICategory } from '../types';
+import { fetcher } from '@pages/api/fetch';
+import {
+  GetServerSideProps,
+  InferGetServerSidePropsType,
+  NextPage,
+} from 'next';
 
-export const NavBar = () => {
+interface CategoryListType {
+  categoryList: ICategory[];
+}
+export const NavBar = ({ categoryList }: CategoryListType) => {
   const [open, setOpen] = useState(false);
-  let data = [
-    {
-      id: '1',
-      text: 'java',
-    },
-    {
-      id: '2',
-      text: 'javaScript',
-    },
-    {
-      id: '3',
-      text: 'SQL',
-    },
-  ];
-  const onClickMenu = (e: React.MouseEvent) => {
-    console.log('클릭' + e);
-  };
+  // const onClickMenu = (e: React.MouseEvent) => {
+  //   console.log('클릭' + e);
+  // };
+
   return (
     <NavbarWrap
       open={open}
@@ -28,13 +26,17 @@ export const NavBar = () => {
         setOpen(!open);
       }}
     >
-      {data.map((menu) => (
-        <NavItem key={menu.id} onClick={onClickMenu}>
-          <Link href={`/blog/${menu.text}`}>{menu.text}</Link>
+      {categoryList.map((item: ICategory) => (
+        <NavItem key={item.categoryId}>
+          <Link href={`/blog/${item.categoryId}`}>{item.categoryId}</Link>
         </NavItem>
       ))}
     </NavbarWrap>
   );
+};
+export const getServerSideProps = () => {
+  const { data: categoryList } = useSWR<ICategory>('/category/list', fetcher);
+  return { props: { categoryList } };
 };
 
 export const NavbarWrap = styled.div<{ open: boolean }>`
