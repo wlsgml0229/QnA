@@ -4,16 +4,12 @@ import Link from 'next/link';
 import useSWR from 'swr';
 import { ICategory } from '../types';
 import { fetcher } from '@pages/api/fetch';
-import {
-  GetServerSideProps,
-  InferGetServerSidePropsType,
-  NextPage,
-} from 'next';
 
 interface CategoryListType {
   categoryList: ICategory[];
 }
-export const NavBar = ({ categoryList }: CategoryListType) => {
+export const NavBar = () => {
+  const { data: categoryList } = useSWR<ICategory[]>('/category/list', fetcher);
   const [open, setOpen] = useState(false);
   // const onClickMenu = (e: React.MouseEvent) => {
   //   console.log('클릭' + e);
@@ -26,17 +22,17 @@ export const NavBar = ({ categoryList }: CategoryListType) => {
         setOpen(!open);
       }}
     >
-      {categoryList.map((item: ICategory) => (
+      {categoryList?.map((item: ICategory) => (
         <NavItem key={item.categoryId}>
-          <Link href={`/blog/${item.categoryId}`}>{item.categoryId}</Link>
+          <Link href={`/blog/${item.categoryId}`}>{item.categoryname}</Link>
         </NavItem>
       ))}
+
+      <NavItem>
+        <Link href={`/category`}>category</Link>
+      </NavItem>
     </NavbarWrap>
   );
-};
-export const getServerSideProps = () => {
-  const { data: categoryList } = useSWR<ICategory>('/category/list', fetcher);
-  return { props: { categoryList } };
 };
 
 export const NavbarWrap = styled.div<{ open: boolean }>`

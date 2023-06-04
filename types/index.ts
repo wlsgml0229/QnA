@@ -4,7 +4,7 @@
 import { Mutator } from 'swr/_internal';
 
 interface Mutate {
-  mutate: Mutator<string | null>
+  mutate: Mutator<string | null>;
 }
 
 export interface IUser {
@@ -24,4 +24,9 @@ export interface IPost {
   id: number;
   title: string;
   content: string;
+}
+
+export interface ICategory {
+  categoryId: number;
+  categoryname: string;
 }
