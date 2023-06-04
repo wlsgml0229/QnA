@@ -30,7 +30,6 @@ export const CategoryWrap = () => {
         </CategoryList>
         <CategoryCreateBtn>+</CategoryCreateBtn>
       </CategoryListWrap>
-    
     </CategoryContainer>
   );
 };

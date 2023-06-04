@@ -2,9 +2,9 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import { CategoryWrap } from '@src/category/CategoryWrap';
 
-function Main() {
+function Category() {
   const router = useRouter();
-  return <CategoryWrap></CategoryWrap>;
+  return <CategoryWrap />;
 }
 
-export default Main;
+export default Category;
