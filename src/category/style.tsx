@@ -42,6 +42,8 @@ export const CategoryItem = styled.li`
   }
 
   strong {
+    display: block;
+    margin-left: 1rem;
     font-weight: bold;
   }
 `;
