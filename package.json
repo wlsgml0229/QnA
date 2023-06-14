@@ -26,6 +26,7 @@
     "react-calendar-heatmap": "^1.9.0",
     "react-colorful": "^5.6.1",
     "react-dom": "18.2.0",
+    "recoil": "^0.7.7",
     "styled-components": "^5.3.9",
     "styled-reset": "^4.4.5",
     "swr": "^2.1.2",

@@ -4,6 +4,7 @@ import customAxios from '@pages/api/axios';
 import { NavBar } from '@components/NavBar';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import { RecoilRoot } from 'recoil';
 
 axios.defaults.baseURL = 'http://43.201.115.136:8080/';
 customAxios.init();
@@ -19,11 +20,14 @@ export default function App({ Component, pageProps }: AppProps) {
   }
 
   // 헤더
+  // @ts-ignore
   return (
     <>
-      <GlobalStyles />
-      <NavBar />
-      <Component {...pageProps} />
+      <RecoilRoot>
+        <GlobalStyles />
+        <NavBar />
+        <Component {...pageProps} />
+      </RecoilRoot>
     </>
   );
 }

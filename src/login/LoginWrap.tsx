@@ -13,15 +13,10 @@ import {
   TitleWrapper,
 } from './style';
 export const LoginWrap = () => {
-  const onSubmit = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>): void => {
-      e.preventDefault();
-    },
-    [],
-  );
-  const loginHandler = () => {
+  const loginHandler = useCallback((e: { preventDefault: () => void }) => {
+    e.preventDefault();
     window.location.href = KAKAO_AUTH_URL;
-  };
+  }, []);
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
   return (
     <LoginWrapper>

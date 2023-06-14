@@ -9,10 +9,16 @@ import { RecentPosts } from '@components/RecentPosts';
 import useSWR from 'swr';
 import { fetcher } from '@pages/api/fetch';
 import { IUser } from 'types';
+import { useRecoilValue } from 'recoil';
+import { userState } from '../../store/user';
 
 export const MainWrap = () => {
+  const user = useRecoilValue(userState);
   //로그인시 user 정보 필요
-  const { data, error, mutate } = useSWR<IUser>('/user/info/1', fetcher);
+  const { data, error, mutate } = useSWR<IUser>(
+    `/user/info/${user.userId}`,
+    fetcher,
+  );
 
   if (error) {
     return <div>Error fetching user information</div>;
