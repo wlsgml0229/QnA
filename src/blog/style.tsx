@@ -19,17 +19,19 @@ export const BlogList = styled.div`
 export const BlogItem = styled.div`
   width: 100%;
   margin-bottom: 2rem;
-  border-bottom: 1px solid #c4c3c3;
+  border-radius: 0.8rem;
+  padding: 2rem;
+  border: 1px solid #e9ecef;
 `;
 
 export const BlogTitle = styled.h1`
-  font-size: 1.6rem;
-  font-weight: bold;
+  font-weight: 700;
+  font-size: 1.5rem;
   margin-bottom: 1.5rem;
 `;
 
 export const BlogContent = styled.p`
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin-bottom: 2rem;
   color: #696767;
 `;
@@ -48,6 +50,4 @@ export const BlogUserWrap = styled.div`
   }
 `;
 
-export const BlogViews = styled.div`
-  margin-bottom: 1.8rem;
-`;
+export const BlogViews = styled.div``;
