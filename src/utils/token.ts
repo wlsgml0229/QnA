@@ -15,3 +15,4 @@ export const token: tokenType = {
     localStorage.removeItem(TOKEN_KEY);
   },
 };
+

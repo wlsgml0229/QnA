@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { token } from '@src/utils/token';
 import { customAxios } from '@pages/api/axios';
 import { useRouter } from 'next/router';
+import { userStorage } from '@src/utils/userId';
 const KakaoLogin = () => {
   const navigate = useRouter();
   const KAKAO_CODE = navigate.asPath.split('=')[1];
@@ -10,13 +11,14 @@ const KakaoLogin = () => {
   useEffect(() => {
     // 백엔드로 인가코드보내기
     customAxios
-      .post(`user/kakao/login?code=${KAKAO_CODE}`)
+      .post(`user/kakao/login?code=${KAKAO_CODE}`, {})
       .then((res) => {
-        if (res.data.data) {
-          token.set(res.data.data.accessToken);
-          customAxios.setHeader();
-          navigate.push('/');
-        }
+        const { accessToken, userId } = res.data.data;
+        customAxios.setHeader();
+        token.set(accessToken);
+        userStorage.set(userId);
+        alert('userStorage');
+        navigate.push('/');
       })
       .catch(() => {
         token.remove();
