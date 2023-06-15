@@ -4,9 +4,7 @@ export const fetcher = (url: string) =>
   customAxios
     .get(url, {})
     .then((res) => res.data.data)
-    .catch((err) => {
-      throw err;
-    });
+    .catch((err) => err);
 
 export const editUserInfo = (url: string, param: object) =>
   customAxios
