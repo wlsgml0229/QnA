@@ -13,12 +13,12 @@ export const CategoryWrap = () => {
   const [category, setCategory] = useState('');
   const [add, setAdd] = useState(false);
   const onClickHandler = () => {
-      setAdd(true);
-  }
+    setAdd(true);
+  };
   const [editCategory, setEditCategory] = useState(false);
   const onClickCategoryEdit = () => {
     setEditCategory(true);
-  }
+  };
 
   return (
     <CategoryContainer>
@@ -26,7 +26,7 @@ export const CategoryWrap = () => {
       <CategoryListWrap>
         <CategoryList>
           <CategoryItem>
-            <CircleColor color={'pink'} edit={editCategory}/>
+            <CircleColor color={'pink'} edit={editCategory} />
             <strong>java</strong>
             <CategoryEditBox>
               <span onClick={onClickCategoryEdit}>수정</span>
@@ -34,7 +34,7 @@ export const CategoryWrap = () => {
             </CategoryEditBox>
           </CategoryItem>
           <CategoryItem>
-             <CircleColor color={'pink'} edit={editCategory} />
+            <CircleColor color={'pink'} edit={editCategory} />
             <strong>javaScript</strong>
             <CategoryEditBox>
               <span>수정</span>
@@ -42,15 +42,15 @@ export const CategoryWrap = () => {
             </CategoryEditBox>
           </CategoryItem>
           {add && (
-       <>
-        <input
-          type="text"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)} />
-          <button onClick={() => setAdd(false)}>취소</button>
-          </>
-    
-    )}
+            <>
+              <input
+                type="text"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+              />
+              <button onClick={() => setAdd(false)}>취소</button>
+            </>
+          )}
         </CategoryList>
         <CategoryCreateBtn onClick={onClickHandler}>+</CategoryCreateBtn>
       </CategoryListWrap>

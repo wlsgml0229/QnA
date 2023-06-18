@@ -27,6 +27,6 @@ export interface IPost {
 }
 
 export interface ICategory {
-  categoryId: number;
-  categoryname: string;
+  categoryId: string;
+  categoryName: string;
 }

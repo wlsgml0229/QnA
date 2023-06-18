@@ -4,16 +4,22 @@ import Link from 'next/link';
 import useSWR from 'swr';
 import { ICategory } from '../types';
 import { fetcher } from '@pages/api/fetch';
+import { userStorage } from '@src/utils/userId';
 
 interface CategoryListType {
   categoryList: ICategory[];
 }
 export const NavBar = () => {
-  const { data: categoryList } = useSWR<ICategory[]>('/category/list', fetcher);
   const [open, setOpen] = useState(false);
-  // const onClickMenu = (e: React.MouseEvent) => {
-  //   console.log('클릭' + e);
-  // };
+  const userId = userStorage.get();
+  const { data: categoryList, error } = useSWR<CategoryListType>(
+    `/category/list/${userId}`,
+    fetcher,
+  );
+
+  if (error) {
+    return <></>;
+  }
 
   return (
     <NavbarWrap
@@ -22,14 +28,15 @@ export const NavBar = () => {
         setOpen(!open);
       }}
     >
-      {categoryList?.map((item: ICategory) => (
-        <NavItem key={item.categoryId}>
-          <Link href={`/blog/${item.categoryId}`}>{item.categoryname}</Link>
-        </NavItem>
-      ))}
-
+      {Array.isArray(categoryList)
+        ? categoryList.map((item: ICategory) => (
+            <NavItem key={item.categoryId}>
+              <Link href={`/blog/${item.categoryId}`}>{item.categoryId}</Link>
+            </NavItem>
+          ))
+        : null}
       <NavItem>
-        <Link href={`/category`}>category</Link>
+        <Link href={'/category'}>category</Link>
       </NavItem>
     </NavbarWrap>
   );
