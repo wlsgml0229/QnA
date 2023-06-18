@@ -4,16 +4,12 @@ import customAxios from '@pages/api/axios';
 import { NavBar } from '@components/NavBar';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import { RecoilRoot, useResetRecoilState, useSetRecoilState } from 'recoil';
-import { useEffect } from 'react';
-
-import { userState } from '../store/user';
+import { RecoilRoot } from 'recoil';
 
 axios.defaults.baseURL = 'http://43.201.115.136:8080/';
 customAxios.init();
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  // const setUserState = useSetRecoilState(userState);
 
   if (router.pathname === '/login') {
     return (

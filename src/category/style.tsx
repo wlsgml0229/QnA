@@ -15,21 +15,24 @@ export const CategoryContainer = styled.div`
 `;
 
 export const CategoryListWrap = styled.section`
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  background-color: #fff;
-  border-radius: 10px;
   height: 50rem;
   width: 35rem;
-  padding: 2rem;
   position: relative;
 `;
 
 export const CategoryList = styled.ul`
   li {
+    border: 1px solid #2222221d;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 1rem;
     display: flex;
     padding: 1.2rem;
     width: 100%;
     display: flex;
+    height: 5rem;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
@@ -37,8 +40,9 @@ export const CategoryItem = styled.li`
   font-size: 1.3rem;
 
   &:hover {
-    background-color: #c1d6ee92;
-    border-radius: 3px;
+    transform: translateY(-2px);
+    transition: 0.2s all;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   }
 
   strong {

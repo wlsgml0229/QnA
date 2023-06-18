@@ -10,11 +10,9 @@ import useSWR from 'swr';
 import { fetcher } from '@pages/api/fetch';
 import { IUser } from 'types';
 import { userStorage } from '@src/utils/userId';
-import { useEffect } from 'react';
 
 export const MainWrap = () => {
   const userId = userStorage.get();
-  console.log('adsfad');
   //로그인시 user 정보 필요
   const { data, error } = useSWR<IUser>(
     userId ? `/user/info/${userId}` : null,
