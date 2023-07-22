@@ -5,6 +5,7 @@ import useSWR from 'swr';
 import { ICategory } from '../types';
 import { fetcher } from '@pages/api/fetch';
 import { userStorage } from '@src/utils/userId';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 interface CategoryListType {
   categoryList: ICategory[];
@@ -18,12 +19,14 @@ export const NavBar = () => {
   );
 
   if (error) {
-    return <></>;
+    return;
   }
 
   return (
     <NavbarWrap
       open={open}
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
       onClick={() => {
         setOpen(!open);
       }}
@@ -31,12 +34,14 @@ export const NavBar = () => {
       {Array.isArray(categoryList)
         ? categoryList.map((item: ICategory) => (
             <NavItem key={item.categoryId}>
-              <Link href={`/blog/${item.categoryId}`}>{item.categoryId}</Link>
+              <Link href={`/blog/${item.categoryId}`}>
+                {open ? item.categoryId: ''}
+                </Link>
             </NavItem>
           ))
         : null}
       <NavItem>
-        <Link href={'/category'}>category</Link>
+        <Link href={'/category'}><SettingsIcon fontSize='large' />{open?'category': ''}</Link>
       </NavItem>
     </NavbarWrap>
   );
@@ -52,6 +57,7 @@ export const NavbarWrap = styled.div<{ open: boolean }>`
   position: fixed;
   padding: 5rem 1rem;
   transition: width 0.3s;
+  border-right: 1px solid grey;
   ${(props) =>
     props.open &&
     css`
@@ -76,6 +82,11 @@ export const NavItem = styled.div`
   font-size: 1.5rem;
   color: #637381;
   a {
+    display: flex;
+    align-items: center;
     text-decoration: none;
+    svg {
+      margin-right: 1rem;
+    }
   }
 `;
