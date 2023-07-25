@@ -3,12 +3,17 @@ import styled from 'styled-components';
 export const ProfileWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  //justify-content: space-around;
-  border-radius: 30px;
+  width: 100%;
+  height: 29rem;
+  margin-bottom: 2.4rem;
+  border-radius: 16px;
+  box-shadow: rgba(145, 158, 171, 0.2) 0 0 2px 0,
+    rgba(145, 158, 171, 0.12) 0 12px 24px -4px;
   border: 1px solid #c9d2db47;
   padding: 1.6rem;
-  height: 60rem;
   img {
+    width: 12.6rem;
+    height: auto;
     border-radius: 50%;
   }
 `;
