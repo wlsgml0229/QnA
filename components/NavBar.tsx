@@ -11,7 +11,6 @@ interface CategoryListType {
   categoryList: ICategory[];
 }
 export const NavBar = () => {
-  const [open, setOpen] = useState(false);
   const userId = userStorage.get();
   const { data: categoryList, error } = useSWR<CategoryListType>(
     `/category/list/${userId}`,
@@ -23,32 +22,26 @@ export const NavBar = () => {
   }
 
   return (
-    <NavbarWrap
-      open={open}
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
-      onClick={() => {
-        setOpen(!open);
-      }}
-    >
+    <NavbarWrap>
       {Array.isArray(categoryList)
         ? categoryList.map((item: ICategory) => (
             <NavItem key={item.categoryId}>
-              <Link href={`/blog/${item.categoryId}`}>
-                {open ? item.categoryId: ''}
-                </Link>
+              <Link href={`/blog/${item.categoryId}`}>{item.categoryId}</Link>
             </NavItem>
           ))
         : null}
       <NavItem>
-        <Link href={'/category'}><SettingsIcon fontSize='large' />{open?'category': ''}</Link>
+        <Link href={'/category'}>
+          <SettingsIcon fontSize="large" />
+          Category
+        </Link>
       </NavItem>
     </NavbarWrap>
   );
 };
 
-export const NavbarWrap = styled.div<{ open: boolean }>`
-  width: 6rem;
+export const NavbarWrap = styled.div`
+  width: 28rem;
   height: 100vh;
   background: white;
   overflow: hidden;
@@ -57,31 +50,20 @@ export const NavbarWrap = styled.div<{ open: boolean }>`
   position: fixed;
   padding: 5rem 1rem;
   transition: width 0.3s;
-  border-right: 1px solid grey;
-  ${(props) =>
-    props.open &&
-    css`
-      width: 28rem;
-      opacity: 0.8;
-      padding: 5rem 1.6rem 0;
-    `}
-  ${(props) =>
-    !props.open &&
-    css`
-      &:hover {
-        width: 28rem;
-        opacity: 0.8;
-        padding: 5rem 1.6rem 0;
-      }
-    `}
+  border-right: 1px solid rgba(145, 158, 171, 0.24);
 `;
 
 export const NavItem = styled.div`
   width: 100%;
-  padding: 1rem 1.2rem;
+  padding: 0.8rem 0;
+  border-radius: 6px;
   font-size: 1.5rem;
   color: #637381;
+  &:hover {
+    background: rgba(145, 158, 171, 0.16);
+  }
   a {
+    padding-left: 2rem;
     display: flex;
     align-items: center;
     text-decoration: none;
