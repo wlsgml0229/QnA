@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import { RecoilRoot } from 'recoil';
 
-axios.defaults.baseURL = 'http://43.201.115.136:8080/';
+axios.defaults.baseURL = 'http://3.39.11.231:8080/';
 customAxios.init();
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();

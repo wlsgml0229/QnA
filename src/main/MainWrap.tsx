@@ -1,8 +1,4 @@
-import {
-  MainContainer,
-  RecentPostsContainer,
-  MainRightWrap,
-} from '@src/main/style';
+import { RecentPostsContainer, MainRightWrap } from '@src/main/style';
 import { Profile } from '@src/main/components/Profile';
 import { CalendarGraph } from './components/CalendarGraph';
 import { RecentPosts } from '@components/RecentPosts';
@@ -10,6 +6,7 @@ import useSWR from 'swr';
 import { fetcher } from '@pages/api/fetch';
 import { IUser } from 'types';
 import { userStorage } from '@src/utils/userId';
+import Container from '@components/Container';
 
 export const MainWrap = () => {
   const userId = userStorage.get();
@@ -28,7 +25,7 @@ export const MainWrap = () => {
   }
 
   return (
-    <MainContainer>
+    <Container>
       <Profile {...data} />
       <MainRightWrap>
         <CalendarGraph />
@@ -37,6 +34,6 @@ export const MainWrap = () => {
           <RecentPosts title={'Recent questions'} />
         </RecentPostsContainer>
       </MainRightWrap>
-    </MainContainer>
+    </Container>
   );
 };
