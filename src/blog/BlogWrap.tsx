@@ -1,6 +1,6 @@
 import {
   BlogContent,
-  BlogItem,
+  BlogItem, BlogItemBottom,
   BlogList,
   BlogTitle,
   BlogUserWrap,
@@ -9,6 +9,8 @@ import {
 import Image from 'next/image';
 import myImg from '@assets/images/myImg.jpeg';
 import Link from 'next/link';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import {RemoveRedEye, Textsms} from "@mui/icons-material";
 
 const data = [
   {
@@ -54,9 +56,13 @@ export const BlogWrap = ({ menu }: Props) => {
             </BlogUserWrap>
             <BlogTitle>{item.title}</BlogTitle>
             <BlogContent>{item.content}</BlogContent>
-            <BlogViews>
-              <span>조회수 43</span>
-            </BlogViews>
+            <BlogItemBottom>
+              <button><MoreHorizIcon/></button>
+              <BlogViews>
+                <span><Textsms/> 252</span>
+                <span><RemoveRedEye/> 22</span>
+              </BlogViews>
+            </BlogItemBottom>
           </Link>
         </BlogItem>
       ))}

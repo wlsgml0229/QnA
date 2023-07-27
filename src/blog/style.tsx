@@ -19,8 +19,10 @@ export const BlogList = styled.div`
 export const BlogItem = styled.div`
   width: 100%;
   margin-bottom: 2rem;
-  border-radius: 0.8rem;
-  padding: 2rem;
+  box-shadow: rgba(145, 158, 171, 0.2) 0px 0px 2px 0px, rgba(145, 158, 171, 0.12) 0px 12px 24px -4px;
+  border-radius: 16px;
+  min-height: 20rem;
+  padding: 2.4rem 2.4rem 1.6rem;
   border: 1px solid #e9ecef;
 `;
 
@@ -50,4 +52,23 @@ export const BlogUserWrap = styled.div`
   }
 `;
 
-export const BlogViews = styled.div``;
+export const BlogItemBottom = styled.div`
+display: flex;
+justify-content: space-between;
+  button {
+    padding: 0.8rem;
+   svg {
+      width: 2rem;
+      height: 2rem;
+      padding: 0;
+      margin: 0;
+    }
+  }
+`;
+export const BlogViews = styled.div`
+  display: flex;
+  gap: 1.2rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: rgb(145, 159, 171);
+`;
