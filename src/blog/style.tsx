@@ -24,6 +24,8 @@ export const BlogItem = styled.div`
   min-height: 20rem;
   padding: 2.4rem 2.4rem 1.6rem;
   border: 1px solid #e9ecef;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const BlogTitle = styled.h1`
@@ -53,15 +55,16 @@ export const BlogUserWrap = styled.div`
 `;
 
 export const BlogItemBottom = styled.div`
-display: flex;
-justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
   button {
-    padding: 0.8rem;
+    box-sizing: border-box;
+    padding:0.8rem;
+    font-size: 0;
    svg {
-      width: 2rem;
-      height: 2rem;
-      padding: 0;
-      margin: 0;
+     width: 2rem;
+     height: 2rem;
     }
   }
 `;
@@ -71,4 +74,9 @@ export const BlogViews = styled.div`
   font-size: 0.75rem;
   font-weight: 400;
   color: rgb(145, 159, 171);
+  span {
+    gap: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
 `;

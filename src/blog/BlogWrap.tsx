@@ -43,7 +43,7 @@ export const BlogWrap = ({ menu }: Props) => {
       <h2>{menu}</h2>
       {data.map((item) => (
         <BlogItem key={item.id}>
-          <Link href={`/blog/${menu}/${item.id}`}>
+
             <BlogUserWrap>
               <Image
                 src={myImg}
@@ -54,8 +54,10 @@ export const BlogWrap = ({ menu }: Props) => {
               />
               <span>{item.user.name}</span>
             </BlogUserWrap>
+          <Link href={`/blog/${menu}/${item.id}`}>
             <BlogTitle>{item.title}</BlogTitle>
             <BlogContent>{item.content}</BlogContent>
+          </Link>
             <BlogItemBottom>
               <button><MoreHorizIcon/></button>
               <BlogViews>
@@ -63,7 +65,7 @@ export const BlogWrap = ({ menu }: Props) => {
                 <span><RemoveRedEye/> 22</span>
               </BlogViews>
             </BlogItemBottom>
-          </Link>
+
         </BlogItem>
       ))}
     </BlogList>
