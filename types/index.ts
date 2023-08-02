@@ -16,14 +16,22 @@ export interface IUser {
 export interface MainProps {
   id: number;
   user: Object;
-  postList: Array<IPost>;
-  qnaList: Array<IPost>;
+  postList: Array<IBlog>;
+  qnaList: Array<IQna>;
 }
 
-export interface IPost {
-  id: number;
-  title: string;
-  content: string;
+export interface IBlog {
+  id: string;
+  boardTitle: string;
+  contents: string;
+  user: IUser;
+  menu: string | null;
+}
+
+export interface IQna {
+  id: string;
+  boardTitle: string;
+  contents: string;
 }
 
 export interface ICategory {
