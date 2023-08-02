@@ -16,7 +16,7 @@ export const BlogList = styled.div`
     max-width: 100%;
   `}
 `;
-export const BlogItem = styled.div`
+export const BlogItemBox = styled.div`
   width: 100%;
   margin-bottom: 2rem;
   box-shadow: rgba(145, 158, 171, 0.2) 0px 0px 2px 0px, rgba(145, 158, 171, 0.12) 0px 12px 24px -4px;
@@ -58,15 +58,7 @@ export const BlogItemBottom = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: auto;
-  button {
-    box-sizing: border-box;
-    padding:0.8rem;
-    font-size: 0;
-   svg {
-     width: 2rem;
-     height: 2rem;
-    }
-  }
+
 `;
 export const BlogViews = styled.div`
   display: flex;
@@ -79,4 +71,22 @@ export const BlogViews = styled.div`
     display: flex;
     align-items: center;
   }
+`;
+
+export const BlogItemMore = styled.div`
+  button {
+    box-sizing: border-box;
+    padding: 0.8rem;
+    font-size: 0;
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+`;
+
+export const TooltipWrap = styled.div`
+ border: 1px solid green;
+  
 `;
