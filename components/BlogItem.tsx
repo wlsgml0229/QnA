@@ -35,10 +35,9 @@ const BlogItem = ({id, boardTitle, contents, user, menu}: IBlog) => {
             </Link>
             <BlogItemBottom>
                 <BlogItemMore>
+                    <Tooltip>
                     <button onClick={onClickMoreBtn}><MoreHorizIcon/></button>
-                    {openTooltip &&
-                            <Tooltip />
-                    }
+                    </Tooltip>
                 </BlogItemMore>
                 <BlogViews>
                     <span><Textsms/> 252</span>
