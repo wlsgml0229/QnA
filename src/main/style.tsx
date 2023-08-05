@@ -3,13 +3,14 @@ import styled from 'styled-components';
 export const ProfileWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  background: darkgrey;
+  position: relative;
   width: 100%;
   height: 29rem;
   margin-bottom: 2.4rem;
   border-radius: 16px;
   box-shadow: rgba(145, 158, 171, 0.2) 0 0 2px 0,
     rgba(145, 158, 171, 0.12) 0 12px 24px -4px;
-  border: 1px solid #c9d2db47;
   padding: 1.6rem;
   img {
     width: 12.6rem;
@@ -17,31 +18,61 @@ export const ProfileWrapper = styled.div`
     border-radius: 50%;
   }
 `;
-
-export const ProfileTextWrap = styled.div`
-  margin-top: 3rem;
-  width: 30rem;
+export const ProfileUserInfo = styled.div`
+  min-height: 12.6rem;
+  z-index: 10;
   display: flex;
-  align-items: center;
-  flex-direction: column;
+  position: absolute;
+  bottom: 2.4rem;
+  left: 2.4rem;
 `;
+
 export const ProfileIntroduce = styled.div`
+  margin: 2.4rem 0 0 2.4rem;
   font-size: 1.6rem;
   color: darkgray;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-left: 1.6rem;
+  justify-content: flex-end;
 
   h2 {
-    color: black;
+    font-size: 2rem;
+    color: white;
     font-weight: bold;
-    margin-bottom: 1.6rem;
+    margin-bottom: 1.5rem;
   }
+`;
 
-  span {
-    margin-bottom: 1.2rem;
+export const ProfileTab = styled.div`
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: white;
+  min-height: 4.8rem;
+  border-radius: 0 0 1.6rem 1.6rem;
+  width: 100%;
+  z-index: 9;
+`;
+
+export const VisitInfoWrapper = styled.section`
+  padding: 2.4rem 0;
+  display: flex;
+  box-shadow: rgba(145, 158, 171, 0.2) 0px 0px 2px 0px,
+    rgba(145, 158, 171, 0.12) 0px 12px 24px -4px;
+  border-radius: 16px;
+  width: 100%;
+  div {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    text-align: center;
+    font-weight: 700;
+    line-height: 1.5;
+    font-size: 1.5rem;
+    &:nth-child(1) {
+      border-right: 1px solid #e4e4e4;
+    }
   }
 `;
 

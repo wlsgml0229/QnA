@@ -9,20 +9,20 @@ import { useRecoilState } from 'recoil';
 const KakaoLogin = () => {
   const navigate = useRouter();
   const KAKAO_CODE = navigate.asPath.split('=')[1];
-  const [test, setTest] = useRecoilState(myAtom)
+  const [test, setTest] = useRecoilState(myAtom);
 
   useEffect(() => {
     // 백엔드로 인가코드보내기
     customAxios
       .post(`user/kakao/login?code=${KAKAO_CODE}`, {})
       .then((res) => {
-        console.log(res)
-        // const { accessToken, userId } = res.data.data;
-        // customAxios.setHeader();
-        // token.set(accessToken);
+        console.log(res);
+        const { accessToken, userId } = res.data.data;
+        customAxios.setHeader();
+        token.set(accessToken);
         // setTest(userId);
-        // userStorage.set(userId);
-        // navigate.push('/');
+        userStorage.set(userId);
+        navigate.push('/');
       })
       .catch(() => {
         token.remove();
