@@ -4,19 +4,27 @@ import { token } from '@src/utils/token';
 /**
  * axios 응답 인터셉터 설정
  */
+axios.interceptors.request.use(
+  (res) => {
+    if (token.access()) {
+      customAxios.setHeader();
+    }
+    return res;
+  },
+  async (error) => {
+    return Promise.reject(error);
+  },
+);
 export const customAxios = {
   init() {
     console.log('[http][setting start]', axios.defaults.baseURL);
+
     axios.interceptors.response.use(
       (res) => {
         //서버 기본 응답 성공시
         return res;
       },
       async (error) => {
-        token.remove();
-        this.setHeader();
-        this.removeHeader();
-        // router.push('/').catch(() => {});
         return Promise.reject(error);
       },
     );
@@ -44,8 +52,9 @@ export const customAxios = {
   getBlobFile(resource: any, params: any) {
     return axios.get(`${resource}`, { responseType: 'blob', params });
   },
-  post(resource: any,  params: any) {
-    return axios.post(`${resource}`, {params});
+  post(resource: any, params: any) {
+    console.log(params);
+    return axios.post(`${resource}`, { ...params });
   },
   update(resource: any, params: any) {
     return axios.put(`${resource}`, params);
