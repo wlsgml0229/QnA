@@ -25,7 +25,7 @@ export interface IBlog {
   boardTitle: string;
   contents: string;
   user: IUser;
-  menu: string | null;
+  categoryId: string | string[] | undefined;
 }
 
 export interface IQna {
