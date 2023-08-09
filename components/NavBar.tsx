@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import styled, { css } from 'styled-components';
+import React from 'react';
+import styled from 'styled-components';
 import Link from 'next/link';
 import useSWR from 'swr';
 import { ICategory } from '../types';
@@ -15,18 +15,28 @@ export const NavBar = () => {
   const { data: categoryList, error } = useSWR<CategoryListType>(
     `/category/list/${userId}`,
     fetcher,
+    {
+      onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
+        if (error.status !== 403) return;
+        if (retryCount >= 3) return;
+        revalidate({ retryCount });
+      },
+    },
   );
-
-  if (error) {
-    return;
-  }
 
   return (
     <NavbarWrap>
       {Array.isArray(categoryList)
         ? categoryList.map((item: ICategory) => (
             <NavItem key={item.categoryId}>
-              <Link href={`/blog/${item.categoryId}`}>{item.categoryId}</Link>
+              <Link
+                href={{
+                  pathname: `/blog/${item.categoryId}`,
+                  query: { categoryName: `${item.categoryName}` },
+                }}
+              >
+                {item.categoryName}
+              </Link>
             </NavItem>
           ))
         : null}
