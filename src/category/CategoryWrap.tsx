@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import {
   CategoryContainer,
   CategoryListWrap,
@@ -23,19 +23,30 @@ export const CategoryWrap = () => {
     setEditCategory(true);
   };
   const onDeleteCategory = (categoryId: string) => {
-    customAxios.delete(`/category/list/${categoryId}`,{}).then(() => {
-     console.log('SUCCESS')
-    }).catch((err) => {
-      console.log(err);
-    })
-  }
+    customAxios
+      .delete(`/category/list/${categoryId}`, {})
+      .then(() => {
+        console.log('SUCCESS');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    let params = {
+      categoryName: category,
+      color: 'pink',
+    };
+    return customAxios.post('/category/create', params);
+  };
 
   return (
     <CategoryContainer>
       <h1>Category</h1>
       <CategoryListWrap>
         <CategoryList>
-
           <CategoryItem>
             <CircleColor color={'pink'} edit={editCategory} />
             <strong>java</strong>
@@ -48,18 +59,22 @@ export const CategoryWrap = () => {
             <CircleColor color={'pink'} edit={editCategory} />
             <strong>javaScript</strong>
             <CategoryEditBox>
-              <ModeEditOutlineIcon onClick={onClickCategoryEdit}></ModeEditOutlineIcon>
+              <ModeEditOutlineIcon
+                onClick={onClickCategoryEdit}
+              ></ModeEditOutlineIcon>
               <DeleteIcon onClick={() => onDeleteCategory('2')}></DeleteIcon>
             </CategoryEditBox>
           </CategoryItem>
           {add && (
             <CategoryItem>
-              <input
-                type="text"
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-              />
-              <button onClick={() => setAdd(false)}>취소</button>
+              <form onSubmit={handleSubmit}>
+                <input
+                  type="text"
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
+                />
+                <button type="submit">생성</button>
+              </form>
             </CategoryItem>
           )}
         </CategoryList>
@@ -68,7 +83,6 @@ export const CategoryWrap = () => {
     </CategoryContainer>
   );
 };
-function useSWR<T>(arg0: string, fetcher: any): { data: any; } {
+function useSWR<T>(arg0: string, fetcher: any): { data: any } {
   throw new Error('Function not implemented.');
 }
-
