@@ -1,8 +1,9 @@
-import {
-  BlogList,
-} from '@src/blog/style';
-import BlogItem from "@components/BlogItem";
-
+import { BlogList } from '@src/blog/style';
+import BlogItem from '@components/BlogItem';
+import useSWR from 'swr';
+import { IBlog } from '../../types';
+import { fetcher } from '@pages/api/fetch';
+import { useRouter } from 'next/router';
 
 const data = [
   {
@@ -25,18 +26,26 @@ const data = [
   },
 ];
 
-interface Props {
-  menu: string | null;
-}
+export const BlogWrap = () => {
+  const router = useRouter();
+  const { menu: categoryId, categoryName } = router.query;
+  console.log('categoryId', categoryId);
 
-export const BlogWrap = ({ menu }: Props) => {
-
+  const { data: blogList, error } = useSWR<IBlog[]>(
+    `/blog-board/list`,
+    fetcher,
+  );
+  console.log(blogList);
   return (
     <BlogList>
-      <h2>{menu}</h2>
-      {data.map((item) => (
-        <BlogItem key={item.id} {...item} menu={menu}/>
-      ))}
+      <h2>{categoryName}</h2>
+      {blogList?.length ? (
+        blogList.map((item) => (
+          <BlogItem key={item.id} {...item} categoryId={categoryId} />
+        ))
+      ) : (
+        <>게시글이 없습니다.</>
+      )}
     </BlogList>
   );
 };
