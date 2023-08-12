@@ -2,24 +2,24 @@ import styled from 'styled-components';
 import { media } from '@styles/media';
 
 export const BlogList = styled.div`
-  width: 100%;
+  width: calc(100% - 28rem);
   max-width: 120rem; /* 뷰포트의 너비가 1200px 이하일 때는 100%의 너비를 가지게 됨 */
-  margin: 5rem auto 0 auto;
-  padding-left: 8rem;
+
   h2 {
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 4rem;
     font-family: '양진체', serif;
   }
-  ${media.medium`
-    max-width: 100%;
+  ${media.large`
+    width: 100%;
   `}
 `;
 export const BlogItemBox = styled.div`
   width: 100%;
   margin-bottom: 2rem;
-  box-shadow: rgba(145, 158, 171, 0.2) 0px 0px 2px 0px, rgba(145, 158, 171, 0.12) 0px 12px 24px -4px;
+  box-shadow: rgba(145, 158, 171, 0.2) 0px 0px 2px 0px,
+    rgba(145, 158, 171, 0.12) 0px 12px 24px -4px;
   border-radius: 16px;
   min-height: 20rem;
   padding: 2.4rem 2.4rem 1.6rem;
@@ -58,7 +58,6 @@ export const BlogItemBottom = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: auto;
-
 `;
 export const BlogViews = styled.div`
   display: flex;
@@ -85,8 +84,13 @@ export const BlogItemMore = styled.div`
     }
   }
 `;
-
+export const EmptyBlogList = styled.div`
+  height: 40rem;
+  font-size: 1.8rem;
+  text-align: center;
+  border-top: 1px solid #2e2e2e;
+  line-height: 40rem;
+`;
 export const TooltipWrap = styled.div`
- border: 1px solid green;
-  
+  border: 1px solid green;
 `;

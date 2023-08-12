@@ -11,6 +11,7 @@ import { CircleColor } from '@components/CircleColor';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ModeEditOutlineIcon from '@mui/icons-material/ModeEditOutline';
 import customAxios from '@pages/api/axios';
+import Container from '@components/Container';
 
 export const CategoryWrap = () => {
   const [category, setCategory] = useState('');
@@ -43,44 +44,46 @@ export const CategoryWrap = () => {
   };
 
   return (
-    <CategoryContainer>
-      <h1>Category</h1>
-      <CategoryListWrap>
-        <CategoryList>
-          <CategoryItem>
-            <CircleColor color={'pink'} edit={editCategory} />
-            <strong>java</strong>
-            <CategoryEditBox>
-              <span onClick={onClickCategoryEdit}>수정</span>
-              <span>삭제</span>
-            </CategoryEditBox>
-          </CategoryItem>
-          <CategoryItem>
-            <CircleColor color={'pink'} edit={editCategory} />
-            <strong>javaScript</strong>
-            <CategoryEditBox>
-              <ModeEditOutlineIcon
-                onClick={onClickCategoryEdit}
-              ></ModeEditOutlineIcon>
-              <DeleteIcon onClick={() => onDeleteCategory('2')}></DeleteIcon>
-            </CategoryEditBox>
-          </CategoryItem>
-          {add && (
+    <Container>
+      <CategoryContainer>
+        <h1>Category</h1>
+        <CategoryListWrap>
+          <CategoryList>
             <CategoryItem>
-              <form onSubmit={handleSubmit}>
-                <input
-                  type="text"
-                  value={category}
-                  onChange={(e) => setCategory(e.target.value)}
-                />
-                <button type="submit">생성</button>
-              </form>
+              <CircleColor color={'pink'} edit={editCategory} />
+              <strong>java</strong>
+              <CategoryEditBox>
+                <span onClick={onClickCategoryEdit}>수정</span>
+                <span>삭제</span>
+              </CategoryEditBox>
             </CategoryItem>
-          )}
-        </CategoryList>
-        <CategoryCreateBtn onClick={onClickHandler}>+</CategoryCreateBtn>
-      </CategoryListWrap>
-    </CategoryContainer>
+            <CategoryItem>
+              <CircleColor color={'pink'} edit={editCategory} />
+              <strong>javaScript</strong>
+              <CategoryEditBox>
+                <ModeEditOutlineIcon
+                  onClick={onClickCategoryEdit}
+                ></ModeEditOutlineIcon>
+                <DeleteIcon onClick={() => onDeleteCategory('2')}></DeleteIcon>
+              </CategoryEditBox>
+            </CategoryItem>
+            {add && (
+              <CategoryItem>
+                <form onSubmit={handleSubmit}>
+                  <input
+                    type="text"
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                  />
+                  <button type="submit">생성</button>
+                </form>
+              </CategoryItem>
+            )}
+          </CategoryList>
+          <CategoryCreateBtn onClick={onClickHandler}>+</CategoryCreateBtn>
+        </CategoryListWrap>
+      </CategoryContainer>
+    </Container>
   );
 };
 function useSWR<T>(arg0: string, fetcher: any): { data: any } {
