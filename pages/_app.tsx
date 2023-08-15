@@ -5,20 +5,25 @@ import { NavBar } from '@components/NavBar';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import { RecoilRoot } from 'recoil';
-import {useEffect} from "react";
-import {worker} from "@mocks/browser";
 
 axios.defaults.baseURL = 'http://3.39.11.231:8080/';
-customAxios.init();
+const isServer = process.browser ? false : true;
+
+if (process.env.NODE_ENV === 'development') {
+  if (isServer) {
+    (async () => {
+      const { server } = await import('@mocks/server');
+      server.listen();
+    })();
+  } else {
+    (async () => {
+      const { worker } = await import('@mocks/browser');
+      worker.start();
+    })();
+  }
+}
+
 export default function App({ Component, pageProps }: AppProps) {
-
-    useEffect(() => {
-        // 개발 환경에서만 MSW를 활성화
-        if (process.env.NODE_ENV === 'test' &&  typeof window !== 'undefined') {
-            worker.start();
-        }
-    }, []);
-
   const router = useRouter();
 
   if (router.pathname === '/login') {
@@ -49,4 +54,3 @@ export default function App({ Component, pageProps }: AppProps) {
  * 글로벌 css 선언
  *
  */
-
