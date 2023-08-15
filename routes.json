@@ -1,5 +1,0 @@
-{
-  "/api/*": "/$1",
-  "/user/info/:userId": "/user?userId=:userId",
-  "/blog-board/list/:boardId": "/blog"
-}
