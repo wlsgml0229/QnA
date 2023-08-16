@@ -5,9 +5,10 @@ import { NavBar } from '@components/NavBar';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import { RecoilRoot } from 'recoil';
+import BASE_URL from '@pages/api/client';
 
-axios.defaults.baseURL = 'http://3.39.11.231:8080/';
-const isServer = process.browser ? false : true;
+axios.defaults.baseURL = BASE_URL + '/';
+const isServer = !process.browser;
 
 if (process.env.NODE_ENV === 'development') {
   if (isServer) {
@@ -18,7 +19,9 @@ if (process.env.NODE_ENV === 'development') {
   } else {
     (async () => {
       const { worker } = await import('@mocks/browser');
-      worker.start();
+      await worker.start({
+        onUnhandledRequest: 'bypass',
+      });
     })();
   }
 }
