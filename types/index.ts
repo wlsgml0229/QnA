@@ -1,23 +1,10 @@
 // types/index.ts
 
-// import { Mutator } from 'swr';
-import { Mutator } from 'swr/_internal';
-
-interface Mutate {
-  mutate: Mutator<string | null>;
-}
-
 export interface IUser {
   userId: string;
   userName: string;
   nickName: string | null;
   profileImgUrl: string;
-}
-export interface MainProps {
-  id: number;
-  user: Object;
-  postList: Array<IBlog>;
-  qnaList: Array<IQna>;
 }
 
 export interface IBlog {
@@ -38,4 +25,9 @@ export interface ICategory {
   categoryId: string;
   categoryName: string;
   color: string;
+}
+
+export interface IWriteDate {
+  date: string;
+  count: number;
 }

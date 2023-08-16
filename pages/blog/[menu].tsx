@@ -1,6 +1,8 @@
 import React from 'react';
 import { BlogWrap } from '@src/blog/BlogWrap';
 
-export default function Blog() {
+const Blog = () => {
   return <BlogWrap />;
-}
+};
+
+export default Blog;
