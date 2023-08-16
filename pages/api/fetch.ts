@@ -5,9 +5,3 @@ export const fetcher = (url: string) =>
     .get(url, {})
     .then((res) => res.data.data)
     .catch((err) => err);
-
-export const editUserInfo = (url: string, param: object) =>
-  customAxios
-    .post(url, param)
-    .then((res) => res.data.data)
-    .catch((err) => err);
