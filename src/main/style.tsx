@@ -77,16 +77,30 @@ export const VisitInfoWrapper = styled.section`
 `;
 
 export const CalendarGraphwrap = styled.div`
-  width: calc(100% - 8rem);
   height: calc(50vh - 8rem);
   display: flex;
   align-items: center;
+
+  .react-calendar-heatmap .color-scale-1 {
+    fill: #bd9df3;
+  }
+
+  .react-calendar-heatmap .color-scale-2 {
+    fill: #aa82f1;
+  }
+
+  .react-calendar-heatmap .color-scale-3 {
+    fill: #9d71ee;
+  }
+
+  .react-calendar-heatmap .color-scale-4 {
+    fill: #7733e8;
+  }
 `;
 
 export const MainRightWrap = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 4rem;
   width: 100%;
 `;
 
