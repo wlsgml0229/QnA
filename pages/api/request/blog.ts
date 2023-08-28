@@ -8,8 +8,8 @@ export const useBlogLatestSWR = () => {
 };
 
 export const useBlogAllListSWR = () => {
-  return useSWR<IUser>(`${BLOG}/list`, fetcher);
+  return useSWR<IBlog[]>(`${BLOG}/list`, fetcher);
 };
 export const useBlogListSWR = (categoryId: string) => {
-  return useSWR<IUser>(`${BLOG}/list/${categoryId}`, fetcher);
+  return useSWR<IBlog[]>(`${BLOG}/list/${categoryId}`, fetcher);
 };

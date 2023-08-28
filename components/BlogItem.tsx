@@ -16,8 +16,17 @@ import { IBlog } from '../types';
 import { BlogItemBox } from '@src/blog/style';
 import Tooltip from '@components/Tooltip';
 
-const BlogItem = ({ id, boardTitle, contents, user, categoryId }: IBlog) => {
-  console.log('props', categoryId);
+interface BlogItemProps extends IBlog {
+  tooltipStates: Object;
+}
+const BlogItem = ({
+  id,
+  boardTitle,
+  contents,
+  user,
+  categoryId,
+  tooltipStates,
+}: BlogItemProps) => {
   const [openTooltip, setOpenTooltip] = useState(false);
   const onClickMoreBtn = () => {
     setOpenTooltip(!openTooltip);
@@ -41,7 +50,7 @@ const BlogItem = ({ id, boardTitle, contents, user, categoryId }: IBlog) => {
       </Link>
       <BlogItemBottom>
         <BlogItemMore>
-          <Tooltip>
+          <Tooltip open={tooltipStates}>
             <button onClick={onClickMoreBtn}>
               <MoreHorizIcon />
             </button>
