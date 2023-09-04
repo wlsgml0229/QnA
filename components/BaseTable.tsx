@@ -4,7 +4,7 @@ import styled from 'styled-components';
 interface Field<T> {
   key: string;
   label: string;
-  render?: (value: T[keyof T]) => ReactNode;
+  render?: (value: T) => React.ReactNode;
   thStyle?: React.CSSProperties;
 }
 
@@ -40,7 +40,7 @@ const BaseTable: React.FC<BaseTableProps> = ({ items, fields }) => {
             ? items.map((item, index) => (
                 <tr key={index}>
                   {fields.map(({ key, render }) => (
-                    <td key={key}>{render ? render(item[key]) : item[key]}</td>
+                    <td key={key}>{render ? render(item) : item[key]}</td>
                   ))}
                 </tr>
               ))

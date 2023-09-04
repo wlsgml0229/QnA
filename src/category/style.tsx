@@ -1,16 +1,13 @@
 import styled from 'styled-components';
 
 export const CategoryContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  width: calc(100%);
+  max-width: 120rem;
   h1 {
     font-size: 2.3rem;
     margin-bottom: 3rem;
     font-weight: bold;
-    font-family: '양진체';
+    font-family: '양진체', serif;
   }
 `;
 
